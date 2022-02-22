@@ -14,7 +14,7 @@ function ScannerPage() {
  
   useEffect(() => {
     const loadData = async () => {
-      await new Promise((r) => setTimeout(r, 500));
+      await new Promise((r) => setTimeout(r, 1000));
       setLoading((loading) => !loading);
     };
     loadData();
