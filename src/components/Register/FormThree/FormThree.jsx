@@ -25,7 +25,7 @@ function FormThree({ props, props2 }) {
 
   const { register, handleSubmit } = useForm();
   const getAllergens = async () => {
-    const res = await axios("http://localhost:8000/api/allergens", {
+    const res = await axios("https://applergic-server.vercel.app/api/allergens", {
       headers: {
         Authorization: {
           toString() {

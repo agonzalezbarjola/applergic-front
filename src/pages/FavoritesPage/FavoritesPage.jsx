@@ -11,7 +11,7 @@ function FavoritesPage() {
   const idUser = JSON.parse(sessionStorage.getItem("id"));
 
   const getUser = async () => {
-    const res = await axios.get(`http://localhost:8000/api/users/${idUser}`, {
+    const res = await axios.get(`https://applergic-server.vercel.app/api/users/${idUser}`, {
       headers: {
         Authorization: {
           toString() {
@@ -37,7 +37,7 @@ function FavoritesPage() {
     const idProduct = e.target.name;
     const deleteFavorite = async () => {
       const res = await axios.patch(
-        `http://localhost:8000/api/users/delete/${idUser}/${idProduct}`,
+        `https://applergic-server.vercel.app/api/users/delete/${idUser}/${idProduct}`,
         {
           headers: {
             Authorization: {

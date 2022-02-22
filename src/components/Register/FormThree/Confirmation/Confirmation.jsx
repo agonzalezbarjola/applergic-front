@@ -15,7 +15,7 @@ function Confirmation({ props, props2, props3, props4 }) {
     
 
     axios
-      .post("http://localhost:8000/api/users/register", {
+      .post("https://applergic-server.vercel.app/api/users/register", {
         image: props2.image,
         name: props2.name,
         email: props2.email,
@@ -50,7 +50,7 @@ function Confirmation({ props, props2, props3, props4 }) {
   } 
 
   // const getAllergens = async () => {
-  //   const res = await axios("http://localhost:8000/api/allergens", {
+  //   const res = await axios("https://applergic-server.vercel.app/api/allergens", {
   //     headers: {
   //       Authorization: {
   //         toString() {

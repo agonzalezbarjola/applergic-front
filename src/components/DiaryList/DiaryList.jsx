@@ -57,7 +57,7 @@ function DiaryList() {
       setAllergens(allergensStorage);
 
       const getProducts = async () => {
-        const res = await axios.get(`http://localhost:8000/api/products/`, {
+        const res = await axios.get(`https://applergic-server.vercel.app/api/products`, {
           params: { codes: diaryList },
           paramsSerializer: (params) => {
             return qs.stringify(params, { arrayFormat: "repeat" });
