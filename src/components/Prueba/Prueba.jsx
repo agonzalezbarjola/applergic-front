@@ -10,9 +10,9 @@ function Prueba({ props }) {
   const data = props;
   const haveAllergy = [];
 
-  console.log(haveAllergy);
+ 
 
-  console.log(props);
+  
   const getProduct = async () => {
     const res = await axios(`https://applergic-server.vercel.app/api/products/${data}`, {
       headers: {

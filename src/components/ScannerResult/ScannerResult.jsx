@@ -5,16 +5,7 @@ import axios from "axios";
 
 function ScannerResult({ props, props2 }) {
   const [error, setError] = useState();
-
-  // const arrayProduct = [];
-  // if (props2.length) {
-  //   if (!props.fav.includes(props2[0]._id)) {
-  //     arrayProduct.push(props2[0]._id);
-  //   }
-  // }
-
-  console.log(props);
-  console.log(props2);
+  const [isFavorite,setisFavorite] = useState(false);
   const addFavorite = () => {
     axios
       .patch("https://applergic-server.vercel.app/api/users/" + props._id, {
@@ -27,17 +18,14 @@ function ScannerResult({ props, props2 }) {
             : [...props.fav],
         diary: [...props.diaryList],
       })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((res) => {})
+      .catch((err) => {});
+      setisFavorite(true);
   };
 
   let coincidence;
   let text;
-  console.log(props2);
+
   if (props2.length) {
     const productArray = props2[0].allergens;
 
@@ -56,19 +44,13 @@ function ScannerResult({ props, props2 }) {
         }
       }
     };
-    console.log(allArray);
+
     verify();
     coincidence =
       allArray.length !== productArray.length + userArray.length ? true : false;
-
-    console.log(allArray, coincidence);
   } else {
     text = "No hay datos para mostrar";
   }
-
-  // console.log(text);
-  // console.log(props);
-  // console.log(props2);
 
   return (
     <div className="c-scannerresult">
@@ -120,18 +102,26 @@ function ScannerResult({ props, props2 }) {
         </div>
 
         <div className="c-scannerresult__imgcontainer--icons">
-          <img
-            src="https://res.cloudinary.com/dkv0drgbb/image/upload/v1644326247/favorito_3x_uuzvff.png"
-            alt="favorite"
-            onClick={addFavorite}
-          ></img>
+          {isFavorite ? (
+            <img
+              src="https://res.cloudinary.com/dkv0drgbb/image/upload/v1645568598/favorito_3x_uuzvff_htikuq.png"
+              alt="favorite"
+              onClick={addFavorite}
+            ></img>
+          ) : (
+            <img
+              src="https://res.cloudinary.com/dkv0drgbb/image/upload/v1644326247/favorito_3x_uuzvff.png"
+              alt="favorite"
+              onClick={addFavorite}
+            ></img>
+          )}
+
           <Link to="/diary">
             <img
               src="https://res.cloudinary.com/dkv0drgbb/image/upload/v1644326248/diario_3x_nsw6xi.png"
               alt="diary"
             ></img>
           </Link>
-
           <img
             src="https://res.cloudinary.com/dkv0drgbb/image/upload/v1644326247/red_3x_ivwedb.png"
             alt="shared"

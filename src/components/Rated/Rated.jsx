@@ -30,10 +30,10 @@ export default function MyComponent() {
         }
       })
       .then(function (response) {
-        console.log(response);
+        
       })
       .catch(function (error) {
-        console.log(error);
+        
       });
   };
 
@@ -45,7 +45,7 @@ export default function MyComponent() {
     postRating();
   }, [rating]);
 
-  console.log(rating);
+  
 
   if (loading) {
     return (

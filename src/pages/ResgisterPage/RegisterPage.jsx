@@ -17,7 +17,7 @@ function RegisterPage() {
   };
 
 
-  console.log("reg1", register);
+ 
 
   return (
     <div className="registerpage">

@@ -5,18 +5,15 @@ function Logout() {
   const { Jwt, setJwt } = useContext(JwtContext);
   const navigate = useNavigate();
   Jwt && sessionStorage.removeItem("token");
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     setTimeout(() => {
       setJwt(false);
-    console.log(Jwt);   
-    sessionStorage.clear();
-    !Jwt && navigate("/login");
+
+      sessionStorage.clear();
+      !Jwt && navigate("/login");
     }, 1000);
-    
-  },[])
-    
-  
+  }, []);
 
   return (
     <div className="isloading">

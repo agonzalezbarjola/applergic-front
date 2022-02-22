@@ -39,7 +39,7 @@ const onboardingArray = [
 function OnboardingPage() {
   const [splash, setSplash] = useState(true);
   const [slide, setSlide] = useState(0);
-  console.log(slide);
+  
 
   return (
     <>

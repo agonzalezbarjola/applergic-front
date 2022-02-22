@@ -6,7 +6,7 @@ function NotFound() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(Jwt);
+    
     setTimeout(() => {
       Jwt && navigate("/home");
       !Jwt && navigate("/login")

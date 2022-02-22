@@ -7,27 +7,24 @@ import { JwtContext } from "../../../shared/JwtContext/JwtContext";
 function FormFour({ props }) {
   const { setJwt } = useContext(JwtContext);
   const navigate = useNavigate();
-  console.log(props);
 
   const login = () => {
-    API
-      .post("login", {
-        email: props.email,
-        password: props.password,
-      })
+    API.post("login", {
+      email: props.email,
+      password: props.password,
+    })
       .then((res) => {
         sessionStorage.setItem("token", res.data.token);
         sessionStorage.setItem("user", JSON.stringify(res.data.userDB.name));
         sessionStorage.setItem("id", JSON.stringify(res.data.userDB._id));
         sessionStorage.setItem("email", JSON.stringify(res.data.userDB.email));
-        console.log(res.data);
+
         navigate("/scanner");
         setJwt(true);
       })
       .catch((err) => {
         navigate("/login");
       });
-    console.log("chao");
   };
 
   return (

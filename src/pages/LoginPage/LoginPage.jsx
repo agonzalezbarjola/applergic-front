@@ -12,7 +12,7 @@ const LoginPage = () => {
   //   const [token, setToken] = useState("");
 
   const onSubmit = (formData) => {
-    console.log(formData);
+    
     API.post("login", formData)
       .then((res) => {
         sessionStorage.setItem("token", res.data.token);
@@ -23,7 +23,7 @@ const LoginPage = () => {
         sessionStorage.setItem("userComplete", JSON.stringify(res.data));
         
        
-        console.log(res.data);
+        
         navigate("/home");
         setJwt(true);
       })

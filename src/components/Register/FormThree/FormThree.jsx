@@ -18,7 +18,7 @@ function FormThree({ props, props2 }) {
     back$$.classList.toggle("showConfirmation")
     hiddenForm$$.classList.toggle("hidden")
 
-    console.log("funciona")
+    
 
 
   }
@@ -57,17 +57,13 @@ function FormThree({ props, props2 }) {
 
   const setAllergyConfirm = (data) => {
     const arraySplit = data.allergens.map((item) => item.split("-"));
-    console.log(arraySplit);
-    // const arrayToSet = arraySplit.map((item, index) =>
-    //   item.map((item2) => item2)
-    // );
-    // console.log(arrayToSet);
+    
+   
     setAllergens2(arraySplit);
   };
 
 
 
-  console.log(allergens2);
 
   return (
     <div className="c-formthree">

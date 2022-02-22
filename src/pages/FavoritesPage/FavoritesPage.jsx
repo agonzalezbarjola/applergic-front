@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./FavoritePage.scss";
-import qs from "qs";
-import Favorite from "../../components/Favorite/Favorite";
+
+
 
 function FavoritesPage() {
   const [dataUser, setDataUser] = useState([]);
@@ -11,29 +11,24 @@ function FavoritesPage() {
   const idUser = JSON.parse(sessionStorage.getItem("id"));
 
   const getUser = async () => {
-    const res = await axios.get(`https://applergic-server.vercel.app/api/users/${idUser}`, {
-      headers: {
-        Authorization: {
-          toString() {
-            return `Bearer ${sessionStorage.getItem("token")}`;
+    const res = await axios.get(
+      `https://applergic-server.vercel.app/api/users/${idUser}`,
+      {
+        headers: {
+          Authorization: {
+            toString() {
+              return `Bearer ${sessionStorage.getItem("token")}`;
+            },
           },
         },
-      },
-    });
+      }
+    );
     setDataUser(res.data.userDB.fav);
-
-    // .then((res) => {
-    //   console.log(res);
-    //   setProduct(res.data.res)
-    // })
-    // .catch((err) => {
-    //   console.log(err);
-    // });
   };
 
   function handleClick(e) {
     e.preventDefault();
-    console.log(e.target.name);
+    
     const idProduct = e.target.name;
     const deleteFavorite = async () => {
       const res = await axios.patch(
@@ -49,7 +44,7 @@ function FavoritesPage() {
         }
       );
 
-      console.log(res);
+      
       setUpdate(!update);
     };
     deleteFavorite();
@@ -58,7 +53,7 @@ function FavoritesPage() {
   useEffect(() => {
     getUser();
   }, [update]);
-  console.log(dataUser);
+  
 
   return (
     <div className="c-Favoritepage">
