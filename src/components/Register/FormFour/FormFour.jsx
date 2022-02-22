@@ -18,7 +18,7 @@ function FormFour({ props }) {
         sessionStorage.setItem("user", JSON.stringify(res.data.userDB.name));
         sessionStorage.setItem("id", JSON.stringify(res.data.userDB._id));
         sessionStorage.setItem("email", JSON.stringify(res.data.userDB.email));
-        sessionStorage.setItem("allergens", JSON.stringify(res.data.userDB.email));
+        sessionStorage.setItem("allergens", JSON.stringify(res.data.userDB.allergens));
         sessionStorage.setItem("userComplete", JSON.stringify(res.data));
         
 
